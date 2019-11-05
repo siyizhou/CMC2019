@@ -1,24 +1,1646 @@
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Test,Test,siyizhou.</title>
-  </head>
-  <body>
-    <h1>
-    </h1>
-    <h2>Publications</h2>
-    <article>
-      <header>
-        <body>文本？
-        </body>
-	<span class="paper_date">(October 2019)</span>
-	<span class="paper_title">Test</span>
-	<ul>
-	  <li><a href="https://arxiv.org/abs/1703.10135">paper</a></li>
-	  <li><a href="publications/tacotron/index.html">audio samples</a></li>
-	</ul>
-      </header>
-    </article>
+<!doctype html>
+<html lang="en">
 
-  </body>
+<head>
+  <meta name="google-site-verification" content="ftFOlJETX-2KNjaPh8W6s8lhigItRuu9fOmjHZZ0nY0" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <title>An Investigation of Labeled Data Reduction on Voice Conversion with Conditional Generative Adversarial Networks</title>
+</head>
+<style type="text/css">
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  audio {
+    width: 100%;
+  }
+
+  thead>tr>th:first-child {
+    width: 96px;
+  }
+
+  @media (max-width: 767px) {
+    .big-screen {
+      display: none;
+    }
+  }
+
+  @media (min-width: 767px) {
+    .small-screen {
+      display: none;
+    }
+  }
+</style>
+
+<body>
+  <header class="header">
+    <div class="jumbotron bg-secondary text-center">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-12">
+            <h1><a class="text-light">
+				An Investigation of Labeled Data Reduction on Voice Conversion with Conditional Generative Adversarial Networks <br> </a></h1>
+            <p>
+              <div class="row">
+                <div class="col-md col-sm-12"><a class="text-light">Minchuan Chen, Weijian Hou, Jun Ma, Shaojun Wang, Jing Xiao</a> </div>
+              </div>
+            </p>
+			<p><a class="text-light">Ping An Technology, China
+				</p></a>
+				
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row" id="intro">
+        <div class="col">
+          <h2>Abstract</h2>
+          <div>
+            <p>Recent studies have shown remarkable success in voice conversion (VC) based on generative adversarial networks (GANs) without parallel data.
+            In this paper, based on the conditional generative adversarial network (CGAN), we propose a self-supervised and semi-supervised method combined 
+            with mixup technique that allows non-parallel many-to-many voice conversion with fewer labeled data. In our method, the discriminator of CGAN  
+            not only learns to distinguish real/fake samples, but also learns to classify them. The discriminator can be used to predict labels for the unlabeled
+            samples and thus reducing the reliance on labeled data. Following this approach, we only need to provide a small amount of labeled data for voice conversion,
+			which enables single generative network to implement many-to-many mapping between different voice domains and generate converted speech as quickly as real time.
+			We verify that the proposed approach is able to achieve comparable voice quality and speaker similarity with only 5% of the labeled data.
+            </p>
+          </div>
+        </div>
+      </div>
+	  
+	  
+
+      
+      <hr>
+      <div class="row" id="result">
+        <div class="col-md-12">
+          <h2>Speech Samples</h2>
+          <p>The voice conversion experiments are conducted on the VCTK dataset and each speaker recorded 400 sentences. 
+          <br>
+          Baseline-100: Voice converted by the vanilla StarGAN-VC model with 100% labeled data.<br>
+		  Baseline-50: Voice converted by the vanilla StarGAN-VC model with 50% labeled data.<br>
+		  Baseline-10: Voice converted by the vanilla StarGAN-VC model with 10% labeled data.<br>
+		  Proposed-10: Voice converted by the proposed method with only 10% labeled data.<br>
+		  Proposed-5: Voice converted by the proposed method with only 5% labeled data.<br>
+		  </p>
+		  
+	  <hr> 	  
+		  		  		  
+		  <h3>Male to Female</h3>
+                  <div class="big-screen">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Source</th>
+                          <th>Target</th>
+                          <th>Baseline-100</th>
+						  <th>Baseline-50</th>
+						  <th>Baseline-10</th>
+						  <th>Proposed-10</th>
+                          <th>Proposed-5</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+						
+						<tr>
+                          <th scope="row">Sample 1</th>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/source/1-p360.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/target/p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base100/1-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base50/1-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base10/1-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/10/1-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/M2F/5/1-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                        </tr>
+						
+						
+						
+						
+						<tr>
+                          <th scope="row">Sample 2</th>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/source/2-p360.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/target/p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base100/2-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base50/2-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base10/2-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/10/2-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/M2F/5/2-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                        </tr>
+						
+						
+						
+						<tr>
+                          <th scope="row">Sample 3</th>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/source/3-p360.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/target/p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base100/3-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base50/3-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base10/3-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/10/3-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/M2F/5/3-p229.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                        </tr>
+						
+						
+						
+                      </tbody>
+                    </table>
+                  </div>
+				  
+                  <div class="small-screen">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sample 1</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/source/1-p360.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Target</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/target/p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-100</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base100/1-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+						<tr>
+                          <td>Baseline-50</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base50/1-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base10/1-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/10/1-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-5</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/5/1-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  
+                    
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sample 2</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/source/2-p360.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Target</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/target/p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-100</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base100/2-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+						<tr>
+                          <td>Baseline-50</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base50/2-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base10/2-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/10/2-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-5</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/5/2-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                    
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sample 3</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/source/3-p360.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Target</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/target/p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-100</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base100/3-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+						<tr>
+                          <td>Baseline-50</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base50/3-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/Base10/3-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/10/3-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-5</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2F/5/3-p229.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                  </div>
+		  <hr>
+		  
+		
+		<h3>Male to Male</h3>
+                  <div class="big-screen">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Source</th>
+                          <th>Target</th>
+                          <th>Baseline-100</th>
+						  <th>Baseline-50</th>
+						  <th>Baseline-10</th>
+						  <th>Proposed-10</th>
+                          <th>Proposed-5</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+						
+						<tr>
+                          <th scope="row">Sample 1</th>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/source/1-p360.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/target/p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base100/1-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base50/1-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base10/1-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/10/1-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/M2M/5/1-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                        </tr>
+						
+						
+						
+						
+						<tr>
+                          <th scope="row">Sample 2</th>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/source/2-p360.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/target/p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base100/2-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base50/2-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base10/2-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/10/2-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/M2M/5/2-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                        </tr>
+						
+						
+						
+						<tr>
+                          <th scope="row">Sample 3</th>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/source/3-p360.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/target/p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base100/3-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base50/3-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base10/3-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/10/3-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/M2M/5/3-p251.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                        </tr>
+						
+						
+						
+                      </tbody>
+                    </table>
+                  </div>
+				  
+                  <div class="small-screen">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sample 1</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/source/1-p360.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Target</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/target/p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-100</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base100/1-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+						<tr>
+                          <td>Baseline-50</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base50/1-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base10/1-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/10/1-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-5</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/5/1-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  
+                    
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sample 2</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/source/2-p360.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Target</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/target/p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-100</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base100/2-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+						<tr>
+                          <td>Baseline-50</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base50/2-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base10/2-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/10/2-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-5</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/5/2-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                    
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sample 3</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/source/3-p360.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Target</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/target/p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-100</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base100/3-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+						<tr>
+                          <td>Baseline-50</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base50/3-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/Base10/3-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/10/3-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-5</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/M2M/5/3-p251.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                  </div>
+		  <hr>
+		
+		<h3>Female to Female</h3>
+                  <div class="big-screen">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Source</th>
+                          <th>Target</th>
+                          <th>Baseline-100</th>
+						  <th>Baseline-50</th>
+						  <th>Baseline-10</th>
+						  <th>Proposed-10</th>
+                          <th>Proposed-5</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+						
+						<tr>
+                          <th scope="row">Sample 1</th>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/source/1-p262.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/target/p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base100/1-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base50/1-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base10/1-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/10/1-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/F2F/5/1-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                        </tr>
+						
+						
+						
+						
+						<tr>
+                          <th scope="row">Sample 2</th>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/source/2-p262.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/target/p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base100/2-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base50/2-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base10/2-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/10/2-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/F2F/5/2-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                        </tr>
+						
+						
+						
+						<tr>
+                          <th scope="row">Sample 3</th>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/source/3-p262.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/target/p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base100/3-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base50/3-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base10/3-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/10/3-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/F2F/5/3-p248.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                        </tr>
+						
+						
+						
+                      </tbody>
+                    </table>
+                  </div>
+				  
+                  <div class="small-screen">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sample 1</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/source/1-p262.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Target</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/target/p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-100</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base100/1-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+						<tr>
+                          <td>Baseline-50</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base50/1-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base10/1-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/10/1-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-5</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/5/1-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  
+                    
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sample 2</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/source/2-p262.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Target</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/target/p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-100</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base100/2-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+						<tr>
+                          <td>Baseline-50</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base50/2-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base10/2-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/10/2-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-5</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/5/2-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                    
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sample 3</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/source/3-p262.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Target</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/target/p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-100</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base100/3-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+						<tr>
+                          <td>Baseline-50</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base50/3-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/Base10/3-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/10/3-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-5</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2F/5/3-p248.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                  </div>
+		  <hr>
+		
+		<h3>Female to Male</h3>
+                  <div class="big-screen">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Source</th>
+                          <th>Target</th>
+                          <th>Baseline-100</th>
+						  <th>Baseline-50</th>
+						  <th>Baseline-10</th>
+						  <th>Proposed-10</th>
+                          <th>Proposed-5</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+						
+						<tr>
+                          <th scope="row">Sample 1</th>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/source/1-p262.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/target/p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base100/1-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base50/1-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base10/1-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/10/1-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/F2M/5/1-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                        </tr>
+						
+						
+						
+						
+						<tr>
+                          <th scope="row">Sample 2</th>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/source/2-p262.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/target/p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base100/2-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base50/2-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base10/2-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/10/2-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/F2M/5/2-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                        </tr>
+						
+						
+						
+						<tr>
+                          <th scope="row">Sample 3</th>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/source/3-p262.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/target/p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base100/3-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base50/3-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base10/3-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/10/3-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+						  <td>
+                            <audio controls>
+                              <source src="./audio/F2M/5/3-p272.wav" type="audio/wav" />
+                            </audio>
+                          </td>
+                        </tr>
+						
+						
+						
+                      </tbody>
+                    </table>
+                  </div>
+				  
+                  <div class="small-screen">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sample 1</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/source/1-p262.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Target</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/target/p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-100</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base100/1-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+						<tr>
+                          <td>Baseline-50</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base50/1-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base10/1-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/10/1-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-5</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/5/1-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  
+                    
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sample 2</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/source/2-p262.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Target</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/target/p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-100</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base100/2-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+						<tr>
+                          <td>Baseline-50</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base50/2-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base10/2-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/10/2-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-5</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/5/2-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                    
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sample 3</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Source</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/source/3-p262.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Target</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/target/p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-100</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base100/3-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+						<tr>
+                          <td>Baseline-50</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base50/3-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Baseline-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/Base10/3-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-10</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/10/3-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Proposed-5</td>
+                          <td>
+                            <audio controls>
+                              <source src="./audio/F2M/5/3-p272.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                  </div>
+		  <hr>
+		  
+		  
+      <div class="row" id="ref">
+        <div class="col">
+          <h2>References</h2>
+          <div>
+            <p>
+              <a name="1">[1]</a>
+              Hirokazu Kameoka, Takuhiro Kaneko, Kou Tanaka, and Nobukatsu Hojo, “StarGAN-VC: Non-parallel many-tomany voice conversion using star generative adversarial networks</a>,” in <em>IEEE Spoken Language TechnologyWorkshop, 2018.</em>
+            </p>
+            <p>
+              <a name="2">[2]</a>
+              Mario Lucic, Michael Tschannen, Marvin Ritter, Xiaohua Zhai, Olivier Bachem, and Sylvain Gelly, “High fidelity image generation with fewer labels</a>,” in <em>International Conference on Machine Learning, 2019.</em>
+            </p>
+            <p>
+              <a name="3">[3]</a>
+              Hongyi Zhang, Moustapha Cisse, Yann N Dauphin, and David Lopez-Paz, “Mixup: Beyond empirical risk minimization</a>,” in <em>ICLR, 2018.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <!-- <div class="row" id="contact">
+          <div class="col">
+            <h2>Contact</h2>
+            <div></div>
+          </div>
+        </div> -->
+    </div>
+  </main>
+  <footer class="bg-secondary text-light mt-4 pt-3 pb-2 ">
+    <div class="container">
+      <p class="text-center">
+        <small>
+          
+          <br>
+          <a class="text-light"><strong> Ping An Technology, 2019 </strong></a> 
+        </small>
+      </p>
+    </div>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
